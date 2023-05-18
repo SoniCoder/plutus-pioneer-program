@@ -1,7 +1,7 @@
 #!/bin/bash
 
-assets=/config/workspace/repo/code/Week02/assets
-keypath=/config/workspace/repo/keys
+assets=/workspaces/plutus-pioneer-program/code/Week02/assets
+keypath=/workspaces/plutus-pioneer-program/keys
 name="$1"
 txin="$2"
 body="$assets/gift.txbody"
@@ -18,7 +18,7 @@ cardano-cli transaction build \
     --babbage-era \
     --testnet-magic 2 \
     --tx-in "$txin" \
-    --tx-out "$(cat "$assets/gift.addr") + 3000000 lovelace" \
+    --tx-out "$(cat "$assets/gift.addr") + 1000000 lovelace" \
     --tx-out-inline-datum-file "$assets/unit.json" \
     --change-address "$(cat "$keypath/$name.addr")" \
     --out-file "$body"

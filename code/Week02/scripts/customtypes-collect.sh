@@ -7,8 +7,8 @@ collateral="$2"
 txin="$3"
 
 pp="$assets/protocol-parameters.json"
-body="$assets/collect-gift.txbody"
-tx="$assets/collect-gift.tx"
+body="$assets/customtypes-collect.txbody"
+tx="$assets/customtypes-collect.tx"
 
 # Query the protocol parameters \
 
@@ -21,9 +21,9 @@ cardano-cli transaction build \
     --babbage-era \
     --testnet-magic 2 \
     --tx-in "$txin" \
-    --tx-in-script-file "$assets/gift.plutus" \
+    --tx-in-script-file "$assets/customtypes.plutus" \
     --tx-in-inline-datum-present \
-    --tx-in-redeemer-file "$assets/unit.json" \
+    --tx-in-redeemer-file "$assets/42.json" \
     --tx-in-collateral "$collateral" \
     --change-address "$(cat "$keypath/$name.addr")" \
     --protocol-params-file "$pp" \
